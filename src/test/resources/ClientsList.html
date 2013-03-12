@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Clients List</title>
+	
+	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		function renderClients(clients) {
+			$(clients).each(function(index, client){
+				$('#list').append('<li class="client">' + client.name + ' @ ' + client.address + '</li>');
+			});
+		}
+	
+		function loadClients() {
+			$.ajax( "http://localhost:8080/clients" ).done(renderClients)
+		}
+	
+		$(function() {
+			$('#button').click(loadClients);
+		});	
+	</script>
+</head>
+<body>
+
+	<button id="button">Get clients</button>
+	<h1>Clients:</h1>
+	<ul id="list"></ul>
+
+</body>
+</html>
