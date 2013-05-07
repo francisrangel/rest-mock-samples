@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org</groupId>
-	<artifactId>rest-mock-selenium</artifactId>
+	<artifactId>rest-mock-jackson</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rest-mock selenium</name>
-	<description>Some rest-mock application samples using Selenium</description>
-	
+	<name>rest-mock jackson</name>
+	<description>Some rest-mock application samples using Jackson</description>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -26,26 +26,26 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.9.1</version>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org</groupId>
 			<artifactId>restmock</artifactId>
 			<version>0.0.1</version>
 			<scope>test</scope>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.31.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
