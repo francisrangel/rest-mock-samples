@@ -14,19 +14,19 @@ public class RESTCurrencyRate implements CurrencyRate {
 	private final String uri;
 	
 	public RESTCurrencyRate(String uri) {
-		this.uri = uri;
+	    this.uri = uri;
 	}
 	
 	public BigDecimal getCurrentRate() {
 	    try {
 	    	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = domFactory.newDocumentBuilder();
-            Document xmlDocument = builder.parse(uri);
-            XPath xPath = XPathFactory.newInstance().newXPath();
-            return new BigDecimal(xPath.compile("/double").evaluate(xmlDocument));
+            	DocumentBuilder builder = domFactory.newDocumentBuilder();
+            	Document xmlDocument = builder.parse(uri);
+            	XPath xPath = XPathFactory.newInstance().newXPath();
+            	return new BigDecimal(xPath.compile("/double").evaluate(xmlDocument));
 	    } catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		throw new RuntimeException(e);
+	    }
 	}
 	
 }
