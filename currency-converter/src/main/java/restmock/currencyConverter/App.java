@@ -2,7 +2,7 @@ package restmock.currencyConverter;
 
 import java.math.BigDecimal;
 
-public class Main {
+public class App {
 	
 	public static void main(String[] args) {
 		CurrencyRate currencyRate = CurrencyRateSource.getProduction();
