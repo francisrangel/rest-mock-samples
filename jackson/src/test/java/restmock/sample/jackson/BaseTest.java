@@ -7,7 +7,7 @@ import com.sun.jersey.api.client.Client;
 public abstract class BaseTest {
 	
 	public static String ADDRESS = "http://localhost";
-	public static String PORT = "8080";
+	public static String PORT = "9080";
 	
 	protected Client client = new Client();
 	protected ObjectMapper mapper = new ObjectMapper();
