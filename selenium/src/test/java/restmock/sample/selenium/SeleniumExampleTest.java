@@ -24,7 +24,7 @@ public class SeleniumExampleTest {
 	private WebDriver driver = new FirefoxDriver();
 	
 	@BeforeClass
-	public static void configure() throws Exception {
+	public static void configure() {
 		setupServer();
 	}
 	
