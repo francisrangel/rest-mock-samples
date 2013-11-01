@@ -13,7 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.By.ById;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,12 +21,13 @@ import restmock.RestMock;
 
 public class SeleniumExampleTest {
 
+	private WebDriver driver = new FirefoxDriver();
+	
 	@BeforeClass
-	public static void configure() {
+	public static void configure() throws Exception {
 		setupServer();
-		setupWebDriver();
 	}
-
+	
 	private static void setupServer() {
 		List<Client> clients = new ArrayList<Client>();
 
@@ -37,17 +38,11 @@ public class SeleniumExampleTest {
 
 		RestMock.startServer();
 	}
-	
-	private static void setupWebDriver() {
-		System.setProperty("webdriver.chrome.driver", SeleniumExampleTest.class.getResource("/chromedriver.exe").getPath());
-	}
 
 	@AfterClass
 	public static void stopServer() {
 		RestMock.stopServer();
 	}
-	
-	WebDriver driver = new ChromeDriver();		
 	
 	@After
 	public void closeWebDriver() {
@@ -65,7 +60,7 @@ public class SeleniumExampleTest {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("client")));
 
 		List<WebElement> clients = driver.findElements(By.className("client"));
-		
+
 		assertEquals(2, clients.size());
 		assertEquals("Test @ Test St.", clients.get(0).getText());
 		assertEquals("Other Test @ Other Test Av.", clients.get(1).getText());
